@@ -1,33 +1,33 @@
 {
-	"name": "gulp-custom-filter",
-	"version": "0.0.0",
-	"description": "A gulp plugin to filter files by customized filters",
-	"main": "index.js",
-	"scripts": {
-		"test": "gulp test"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/a-miyashita/gulp-custom-filter.git"
-	},
-	"keywords": [
-		"gulp",
-		"filter"
-	],
-	"author": {
-		"name": "Akihiro Miyashita",
-		"email": "miya@gameplus.info"
-	},
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/a-miyashita/gulp-custom-filter/issues"
-	},
-	"devDependencies": {
-		"gulp": "~3.9.0",
-		"gulp-jasmine": "~2.1.0"
-	},
-	"dependencies": {
-		"through2": "~2.0.0",
-		"gulp-util": "~3.0.7"
-	}
+  "name": "gulp-custom-filter",
+  "version": "0.1.0",
+  "description": "A gulp plugin to filter files by customized filters",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a-miyashita/gulp-custom-filter.git"
+  },
+  "keywords": [
+    "gulp",
+    "filter"
+  ],
+  "author": {
+    "name": "Akihiro Miyashita",
+    "email": "miya@gameplus.info"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/a-miyashita/gulp-custom-filter/issues"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-jasmine": "~2.1.0"
+  },
+  "dependencies": {
+    "through2": "~2.0.0",
+    "gulp-util": "~3.0.7"
+  }
 }
