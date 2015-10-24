@@ -10,4 +10,8 @@ filter.or = basic.or;
 filter.all = basic.all;
 filter.none = basic.none;
 
+// pattern filters
+var pattern = require('./lib/pattern-filters');
+filter.glob = pattern.glob;
+
 module.exports = filter;

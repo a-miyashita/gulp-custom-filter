@@ -44,7 +44,7 @@ gulp.task('less', function() {
 
 You may set any predicate function to a vinyl file.
 
-### Utility filters
+### Basic filters
 
 #### filter.not(fn)
 
@@ -103,6 +103,21 @@ gulp.src('./less/**/*.less')
 	.pipe(filter(none())) // no file will be passed.
 ```	
 
+### Filename pattern filters
+
+#### filter.glob(pattern, options)
+
+Glob pattern filter for file name. Just a wrapper of minimatch.
+
+```javascript
+var glob = filter.glob;
+
+gulp.src('./**/*.*')
+	.pipe(filter(glob('./**/*.less'))).
+```	
+
+* `pattern`: a string or an array of glob pattern.
+* `options`: optional options.
 
 ## License
 
