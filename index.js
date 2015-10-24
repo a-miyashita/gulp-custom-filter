@@ -1,62 +1,13 @@
 'use strict';
 
-var through = require('through2');
-var gutil = require('gulp-util');
+var filter = require('./lib/filter');
 
-function filter(fn) {
-	assertFunction(fn);
-	return through.obj(function(file, encode, done) {
-		if (fn(file, encode)) {
-			this.push(file);
-		}
-		done();
-	});
-}
-
-function assertFunction(fn, name) {
-	if (!fn || typeof fn !== 'function') {
-		throw new gutil.PluginError('gulp-custom-filter' + (name ? '.' + name : ''),
-				'filter must be a function');
-	}
-}
-
-filter.all = function() {
-	return function() {
-		return true;
-	};
-};
-
-filter.none = function() {
-	return function() {
-		return false;
-	};
-};
-
-filter.not = function(fn) {
-	assertFunction(fn, 'not');
-	return function(file, encode) {
-		return !fn(file, encode);
-	};
-};
-
-filter.and = function() {
-	var filters = arguments;
-	return function(file, encode) {
-		return Array.prototype.every.call(filters, function (fn) {
-			assertFunction(fn, 'and');
-			return fn(file, encode);
-		});
-	};
-};
-
-filter.or = function() {
-	var filters = arguments;
-	return function(file, encode) {
-		return Array.prototype.some.call(filters, function (fn) {
-			assertFunction(fn, 'or');
-			return fn(file, encode);
-		});
-	};
-};
+// basic filters
+var basic = require('./lib/basic-filters');
+filter.not = basic.not;
+filter.and = basic.and;
+filter.or = basic.or;
+filter.all = basic.all;
+filter.none = basic.none;
 
 module.exports = filter;
