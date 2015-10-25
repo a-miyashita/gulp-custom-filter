@@ -12,5 +12,11 @@ describe('pattern filters', function() {
 				done();
 			});
 		});
+
+		it('should throw an error if the pattern is invalid', function() {
+			expect(function() {
+				filters.glob(null);
+			}).toThrow();
+		});
 	});
 });
