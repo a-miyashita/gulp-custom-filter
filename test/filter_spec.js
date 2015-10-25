@@ -17,4 +17,22 @@ describe('filter()', function() {
 			done();
 		});
 	});
+
+	it('should fail if an filter throws an error', function(done) {
+		check(fixture.files, fixture.filters.throwError, function(_) {
+			fail();
+			done();
+		}, function() {
+			done();
+		});
+	});
+
+	it('should fail if an async filter returns a rejected promise', function(done) {
+		check(fixture.files, fixture.filters.asyncThrowError, function(_) {
+			fail();
+			done();
+		}, function() {
+			done();
+		});
+	});
 });
