@@ -1,6 +1,6 @@
 'use strict';
 
-var check = require('./util').checkFilter;
+var check = require('./test-util').checkFilter;
 var filters = require('../lib/basic-filters');
 var fixture = require('./fixture.js');
 
