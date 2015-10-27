@@ -30,6 +30,7 @@
     "gulp-jasmine": "~2.1.0"
   },
   "dependencies": {
+    "es6-set": "^0.1.2",
     "gulp-util": "~3.0.7",
     "minimatch": "^3.0.0",
     "promise": "^7.0.4",

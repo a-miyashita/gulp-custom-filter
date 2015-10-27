@@ -19,4 +19,20 @@ describe('pattern filters', function() {
 			}).toThrow();
 		});
 	});
+
+	describe('ignore()', function() {
+		it('should pass files which equals to ignore file', function(done) {
+			check(fixture.files, filters.ignore('a.js'), function(filenames) {
+				expect(filenames).toEqual(['b.js', 'x.less', 'y.less']);
+				done();
+			});
+		});
+
+		it('should pass files which is contained by ignore list', function(done) {
+			check(fixture.files, filters.ignore(['a.js', 'b.js']), function(filenames) {
+				expect(filenames).toEqual(['x.less', 'y.less']);
+				done();
+			});
+		});
+	});
 });
