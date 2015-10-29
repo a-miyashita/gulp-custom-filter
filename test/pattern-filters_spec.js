@@ -35,10 +35,16 @@ describe('pattern filters', function() {
 			});
 		});
 
-		it('should result in a empty filter, if file is failed to be loaded', function (done) {
-			check(fixture.files, filters.ignore('<<enoent>>'), function (filenames) {
-				expect(filenames).toEqual(['a.js', 'b.js', 'x.less', 'y.less']);
+		it('should result in an error, if file is failed to be loaded', function (done) {
+			var ignore;
+			check(fixture.files, ignore = filters.ignore('<<enoent>>'), function (_) {
+				fail();
 				done();
+			}, function() {
+				ignore('A', undefined, function(err, result) {
+					expect(err).toBeTruthy();
+					done();
+				});
 			});
 		});
 

@@ -120,6 +120,19 @@ gulp.src('./**/*.*')
 * `pattern`: a string or an array of glob pattern.
 * `options`: optional options.
 
+#### filter.ignore(filename)
+
+Ignore list filter.
+
+```javascript
+var ignore = filter.ignore;
+
+gulp.src('./**/*.*')
+	.pipe(filter(ignore('.gitignore')))
+```
+
+* `filename`: filename to ignore file.
+
 ## License
 
 * MIT License
