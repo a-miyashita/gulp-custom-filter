@@ -3,6 +3,7 @@
 var check = require('./test-util').checkFilter;
 var filters = require('../lib/pattern-filters');
 var fixture = require('./fixture.js');
+var mock = require('mock-fs');
 
 describe('pattern filters', function() {
 	describe('glob()', function() {
@@ -21,18 +22,28 @@ describe('pattern filters', function() {
 	});
 
 	describe('ignore()', function() {
-		it('should pass files which equals to ignore file', function(done) {
-			check(fixture.files, filters.ignore('a.js'), function(filenames) {
+		beforeEach(function () {
+			mock({
+				'.myignore': '*.js\n!b.js'
+			});
+		});
+
+		it('should pass files which equals to ignore file, if file is succesfully loaded', function (done) {
+			check(fixture.files, filters.ignore('.myignore'), function (filenames) {
 				expect(filenames).toEqual(['b.js', 'x.less', 'y.less']);
 				done();
 			});
 		});
 
-		it('should pass files which is contained by ignore list', function(done) {
-			check(fixture.files, filters.ignore(['a.js', 'b.js']), function(filenames) {
-				expect(filenames).toEqual(['x.less', 'y.less']);
+		it('should result in a empty filter, if file is failed to be loaded', function (done) {
+			check(fixture.files, filters.ignore('<<enoent>>'), function (filenames) {
+				expect(filenames).toEqual(['a.js', 'b.js', 'x.less', 'y.less']);
 				done();
 			});
+		});
+
+		afterEach(function() {
+			mock.restore();
 		});
 	});
 });
