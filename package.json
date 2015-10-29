@@ -4,7 +4,8 @@
   "description": "A gulp plugin to filter files by customized filters",
   "main": "index.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "coveralls": "gulp coveralls"
   },
   "repository": {
     "type": "git",
@@ -24,11 +25,17 @@
   },
   "devDependencies": {
     "gulp": "~3.9.0",
-    "gulp-jasmine": "~2.1.0"
+    "gulp-coveralls": "^0.1.4",
+    "gulp-istanbul": "^0.10.2",
+    "gulp-jasmine": "~2.1.0",
+    "mock-fs": "^3.4.0"
   },
   "dependencies": {
+    "es6-set": "^0.1.2",
     "gulp-util": "~3.0.7",
+    "ignore": "^2.2.19",
     "minimatch": "^3.0.0",
+    "promise": "^7.0.4",
     "through2": "~2.0.0"
   }
 }

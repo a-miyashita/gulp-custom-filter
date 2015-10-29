@@ -2,7 +2,7 @@
 
 var filter = require('../lib/filter');
 
-function checkFilter(files, targetFilter, assertion) {
+function checkFilter(files, targetFilter, assertion, onError) {
 	var filtered = [];
 	var stream = filter(targetFilter);
 
@@ -11,6 +11,11 @@ function checkFilter(files, targetFilter, assertion) {
 	});
 	stream.on('end', function() {
 		assertion(filtered.map(function(file) { return file.basename; }));
+	});
+	stream.on('error', function(err) {
+		if (onError) {
+			onError(err);
+		}
 	});
 	files.forEach(function(file) {
 		stream.write(file);

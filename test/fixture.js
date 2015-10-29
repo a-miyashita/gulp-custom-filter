@@ -33,6 +33,17 @@ module.exports = {
 		javascript: function(file) {
 			var filename = file.basename;
 			return filename.length > 3 && filename.indexOf('.js') >= 0;
+		},
+		asyncJavascript: function(file, _, done) {
+			var filename = file.basename;
+			var result = filename.length > 3 && filename.indexOf('.js') >= 0;
+			setTimeout(function() { done(null, result); }, 0);
+		},
+		throwError: function(file) {
+			throw Error('error');
+		},
+		asyncThrowError: function(file, _, done) {
+			setTimeout(function() { done('error'); }, 0);
 		}
 	}
 };

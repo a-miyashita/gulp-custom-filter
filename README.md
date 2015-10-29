@@ -1,5 +1,6 @@
 # gulp-custom-filter
 [![Build Status](https://secure.travis-ci.org/a-miyashita/gulp-custom-filter.png?branch=master)](http://travis-ci.org/a-miyashita/gulp-custom-filter)
+[![Coverage Status](https://coveralls.io/repos/a-miyashita/gulp-custom-filter/badge.svg?branch=master&service=github)](https://coveralls.io/github/a-miyashita/gulp-custom-filter?branch=master)
 
 A gulp plugin to filter files by customized filters.
 
@@ -118,6 +119,19 @@ gulp.src('./**/*.*')
 
 * `pattern`: a string or an array of glob pattern.
 * `options`: optional options.
+
+#### filter.ignore(filename)
+
+Ignore list filter.
+
+```javascript
+var ignore = filter.ignore;
+
+gulp.src('./**/*.*')
+	.pipe(filter(ignore('.gitignore')))
+```
+
+* `filename`: filename to ignore file.
 
 ## License
 
