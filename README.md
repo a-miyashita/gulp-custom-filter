@@ -1,6 +1,7 @@
 # gulp-custom-filter
 [![Build Status](https://secure.travis-ci.org/a-miyashita/gulp-custom-filter.png?branch=master)](http://travis-ci.org/a-miyashita/gulp-custom-filter)
 [![Coverage Status](https://coveralls.io/repos/a-miyashita/gulp-custom-filter/badge.svg?branch=master&service=github)](https://coveralls.io/github/a-miyashita/gulp-custom-filter?branch=master)
+[![Code Climate](https://codeclimate.com/github/a-miyashita/gulp-custom-filter/badges/gpa.svg)](https://codeclimate.com/github/a-miyashita/gulp-custom-filter)
 
 A gulp plugin to filter files by customized filters.
 
@@ -132,6 +133,80 @@ gulp.src('./**/*.*')
 ```
 
 * `filename`: filename to ignore file.
+
+## Filter development guide
+
+`gulp-custom-filter` accepts three type of predicate functions.
+
+### Simple boolean predicates: function(file, [encode]): boolean
+
+A predicate must have one or two argument(s).
+It returns a boolean value `true`/`false`.
+
+```javascript
+gulp.src('./**/*.*')
+	.pipe(filter(function(file, encode) {
+		return file.isBuffer();
+	});
+```
+
+To fail the predicate, just throw an error.
+
+```javascript
+gulp.src('./**/*.*')
+	.pipe(filter(function(file, encode) {
+		throw new Error('error');
+	});
+```
+
+
+### Asynchronous predicates: function(file, [encode], done: function(err, result)): void
+
+A predicate must have three arguments.
+The third argument is a callback function to settle a result.
+
+Call `done` with the second argument of `true`/`false`.
+
+```javascript
+gulp.src('./**/*.*')
+	.pipe(filter(function(file, encode, done) {
+		setTimeout(function() {
+			done(null, file.isBuffer()); // 1st argument must be falsy.
+		}, 0);
+	});
+```
+
+To fail the predicate, call `done` with the first argument of non-falsy value.
+
+```javascript
+gulp.src('./**/*.*')
+	.pipe(filter(function(file, encode, done) {
+		setTimeout(function() {
+			done(new Error('error'));
+		}, 0);
+	});
+```
+
+### Promise predicates: function(file, done: function(err, result)): Promise.<boolean>
+
+A predicate must have one or two argument(s).
+It returns a fulfilling promise of boolean value `true`/`false`.
+
+```javascript
+gulp.src('./**/*.*')
+	.pipe(filter(function(file, encode) {
+		return Promise.resolve(file.isBuffer());
+	});
+```
+
+To fail the predicate, return a rejecting promise.
+
+```javascript
+gulp.src('./**/*.*')
+	.pipe(filter(function(file, encode) {
+		return Promise.reject(new Error('error'));
+	});
+```
 
 ## License
 
