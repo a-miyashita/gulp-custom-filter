@@ -24,7 +24,6 @@
     "url": "https://github.com/a-miyashita/gulp-custom-filter/issues"
   },
   "devDependencies": {
-    "fixme": "^0.2.0",
     "gulp": "~3.9.0",
     "gulp-coveralls": "^0.1.4",
     "gulp-eslint": "^1.0.0",
