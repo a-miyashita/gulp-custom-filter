@@ -211,4 +211,4 @@ gulp.src('./**/*.*')
 ## License
 
 * MIT License
-	* see LICENSE
+	* see [LICENSE](LICENSE)

@@ -13,6 +13,7 @@
   },
   "keywords": [
     "gulp",
+    "gulpplugin",
     "filter"
   ],
   "author": {
