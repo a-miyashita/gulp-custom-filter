@@ -25,18 +25,18 @@
     "url": "https://github.com/a-miyashita/gulp-custom-filter/issues"
   },
   "devDependencies": {
-    "gulp": "~3.9.0",
-    "gulp-coveralls": "^0.1.4",
-    "gulp-eslint": "^1.0.0",
-    "gulp-istanbul": "^0.10.2",
-    "gulp-jasmine": "~2.1.0",
-    "mock-fs": "^3.4.0"
+    "gulp": "^3.9",
+    "gulp-coveralls": "^0.1",
+    "gulp-eslint": "^2.0",
+    "gulp-istanbul": "^0.10",
+    "gulp-jasmine": "^2.3",
+    "mock-fs": "^3.8"
   },
   "dependencies": {
-    "gulp-util": "~3.0.7",
-    "ignore": "^2.2.19",
-    "minimatch": "^3.0.0",
-    "promise": "^7.0.4",
-    "through2": "~2.0.0"
+    "gulp-util": "^3.0",
+    "ignore": "^3.0",
+    "minimatch": "^3.0",
+    "promise": "^7.1",
+    "through2": "^2.0"
   }
 }

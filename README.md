@@ -2,6 +2,7 @@
 [![Build Status](https://secure.travis-ci.org/a-miyashita/gulp-custom-filter.png?branch=master)](http://travis-ci.org/a-miyashita/gulp-custom-filter)
 [![Coverage Status](https://coveralls.io/repos/a-miyashita/gulp-custom-filter/badge.svg?branch=master&service=github)](https://coveralls.io/github/a-miyashita/gulp-custom-filter?branch=master)
 [![Code Climate](https://codeclimate.com/github/a-miyashita/gulp-custom-filter/badges/gpa.svg)](https://codeclimate.com/github/a-miyashita/gulp-custom-filter)
+[![David DM](https://david-dm.org/a-miyashita/gulp-custom-filter.svg)][https://david-dm.org/a-miyashita/gulp-custom-filter]
 
 A gulp plugin to filter files by customized filters.
 
