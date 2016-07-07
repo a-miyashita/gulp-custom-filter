@@ -35,7 +35,7 @@
   "dependencies": {
     "gulp-util": "^3.0",
     "ignore": "^3.0",
-    "minimatch": "^3.0",
+    "minimatch": "^3.0.2",
     "promise": "^7.1",
     "through2": "^2.0"
   }
