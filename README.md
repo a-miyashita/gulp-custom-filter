@@ -209,6 +209,13 @@ gulp.src('./**/*.*')
 	});
 ```
 
+## Release Notes
+
+* v0.2.5
+
+	* Update supporting version of Node.js
+	* Fix assertion error message of or() filter
+
 ## License
 
 * MIT License
