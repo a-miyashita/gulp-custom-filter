@@ -1,4 +1,4 @@
-var coveralls = require('gulp-coveralls');
+var coveralls = require('@kollavarsham/gulp-coveralls');
 var eslint = require('gulp-eslint');
 var gulp = require('gulp');
 var jasmine = require('gulp-jasmine');

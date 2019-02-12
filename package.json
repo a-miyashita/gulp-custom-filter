@@ -25,8 +25,8 @@
     "url": "https://github.com/a-miyashita/gulp-custom-filter/issues"
   },
   "devDependencies": {
+    "@kollavarsham/gulp-coveralls": "^0.2.2",
     "gulp": "^4.0",
-    "gulp-coveralls": "^0.1",
     "gulp-eslint": "^5.0",
     "gulp-istanbul": "^1.1",
     "gulp-jasmine": "^4.0",
