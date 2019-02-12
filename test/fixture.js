@@ -1,27 +1,27 @@
 'use strict';
 
 var Buffer = require('buffer').Buffer;
+var Vinyl = require('vinyl');
 var filter = require('../');
-var gutil = require('gulp-util');
 var path = require('path');
 
 module.exports = {
 	files: [
-		new gutil.File({
+		new Vinyl({
 			base: __dirname,
 			path: path.join(__dirname, 'a.js'),
 			contents: new Buffer('var a = 10;')
 		}),
-		new gutil.File({
+		new Vinyl({
 			base: __dirname,
 			path: path.join(__dirname, 'b.js')
 		}),
-		new gutil.File({
+		new Vinyl({
 			base: __dirname,
 			path: path.join(__dirname, 'x.less'),
 			contents: new Buffer('* { color: black; }')
 		}),
-		new gutil.File({
+		new Vinyl({
 			base: __dirname,
 			path: path.join(__dirname, 'y.less')
 		})
