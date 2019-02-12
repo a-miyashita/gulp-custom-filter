@@ -211,6 +211,12 @@ gulp.src('./**/*.*')
 
 ## Release Notes
 
+* v0.3.0
+
+  * Update library dependency
+  * Update supporting version of Node.js
+     * Now we support Node 6 or higher
+
 * v0.2.5
 
 	* Update supporting version of Node.js
