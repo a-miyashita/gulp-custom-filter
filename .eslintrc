@@ -1,4 +1,3 @@
-ecmaFeatures: {}
 env:
   node: true
 rules:

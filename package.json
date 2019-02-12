@@ -4,7 +4,7 @@
   "description": "A gulp plugin to filter files by customized filters",
   "main": "index.js",
   "scripts": {
-    "test": "gulp test",
+    "test": "gulp",
     "coveralls": "gulp coveralls"
   },
   "repository": {
@@ -25,21 +25,22 @@
     "url": "https://github.com/a-miyashita/gulp-custom-filter/issues"
   },
   "devDependencies": {
-    "gulp": "^3.9",
+    "gulp": "^4.0",
     "gulp-coveralls": "^0.1",
-    "gulp-eslint": "^2.0",
-    "gulp-istanbul": "^0.10",
-    "gulp-jasmine": "^2.3",
-    "mock-fs": "^3.8",
+    "gulp-eslint": "^5.0",
+    "gulp-istanbul": "^1.1",
+    "gulp-jasmine": "^4.0",
+    "mock-fs": "^4.8",
+    "tempfile": "^2.0.0",
     "vinyl": "^2.2.0"
   },
   "dependencies": {
-    "ansi-colors": "^3.2.3",
-    "fancy-log": "^1.3.3",
-    "ignore": "^3.0",
-    "minimatch": "^3.0.2",
-    "plugin-error": "^1.0.1",
-    "promise": "^7.1",
-    "through2": "^2.0"
+    "ansi-colors": "^3.2",
+    "fancy-log": "^1.3",
+    "ignore": "^5.0",
+    "minimatch": "^3.0",
+    "plugin-error": "^1.0",
+    "promise": "^8.0",
+    "through2": "^3.0"
   }
 }

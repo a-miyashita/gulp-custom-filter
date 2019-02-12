@@ -3,7 +3,8 @@
 var check = require('./test-util').checkFilter;
 var filters = require('../lib/pattern-filters');
 var fixture = require('./fixture.js');
-var mock = require('mock-fs');
+var fs = require('fs');
+var tempfile = require('tempfile');
 
 describe('pattern filters', function() {
 	describe('glob()', function() {
@@ -22,14 +23,19 @@ describe('pattern filters', function() {
 	});
 
 	describe('ignore()', function() {
-		beforeEach(function () {
-			mock({
-				'.myignore': '*.js\n!b.js'
-			});
+		var ignoreFile;
+
+		beforeEach(function(done) {
+			ignoreFile = tempfile('.myignore');
+			fs.writeFile(ignoreFile, '*.js\n!b.js', done);
+		});
+
+		afterEach(function(done) {
+			fs.unlink(ignoreFile, done);
 		});
 
 		it('should pass files which equals to ignore file, if file is succesfully loaded', function (done) {
-			check(fixture.files, filters.ignore('.myignore'), function (filenames) {
+			check(fixture.files, filters.ignore(ignoreFile), function (filenames) {
 				expect(filenames).toEqual(['b.js', 'x.less', 'y.less']);
 				done();
 			});
@@ -46,10 +52,6 @@ describe('pattern filters', function() {
 					done();
 				});
 			});
-		});
-
-		afterEach(function() {
-			mock.restore();
 		});
 	});
 });
