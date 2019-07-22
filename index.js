@@ -13,5 +13,6 @@ filter.none = basic.none;
 // pattern filters
 var pattern = require('./lib/pattern-filters');
 filter.glob = pattern.glob;
+filter.ignore = pattern.ignore;
 
 module.exports = filter;
