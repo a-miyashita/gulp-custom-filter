@@ -211,6 +211,9 @@ gulp.src('./**/*.*')
 
 ## Release Notes
 
+* v0.4.3
+  * Update library dependency
+
 * v0.3.0
 
   * Update library dependency
